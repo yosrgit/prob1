@@ -1,0 +1,27 @@
+ALGORITHM prob2
+VAR
+    set1,set2,set,index : ARRAY_OF INTEGER[];
+    htab:HASH_TABLE<INTEGER,INTEGER>
+
+BEGIN
+    set=concat(set1,set2)
+    FOR i FROM 0 TO set.length-1 DO
+        sum:=1
+        IF (htab.lookup(set[i])=true) THEN
+            sum:= htab.get(set[i])+1
+
+        ELSE
+           index.push(set[i])
+      
+        END_IF
+             htab.insert(set[i],sum)
+    END_FOR
+    FOR i FROM 0 TO index.length-1  DO
+        IF (htab.get(index[i]<>1)) THEN
+        sum_c:= sum+ index[i]*htab.get(index[i])
+          ELSE
+          sum_d:=sum+index[i]
+        END_IF
+    END_FOR
+
+END
